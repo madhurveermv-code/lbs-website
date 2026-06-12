@@ -1673,41 +1673,64 @@
     </div>
 
     <div class="blog-grid" id="blog-grid">
-      <!-- Blog cards are loaded dynamically from blogs.json -->
+      <!-- Blog cards loaded dynamically -->
     </div>
 
   </div>
 </section>
 
 <script>
-  fetch('blogs.json')
-    .then(function(response) { return response.json(); })
-    .then(function(blogs) {
-      blogs.sort(function(a, b) { return new Date(b.date) - new Date(a.date); });
-      var grid = document.getElementById('blog-grid');
-      blogs.forEach(function(blog) {
-        var date = new Date(blog.date);
-        var formatted = date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-        var card = document.createElement('div');
-        card.className = 'blog-card fade-up';
-        card.innerHTML =
-          '<div class="blog-card-body">' +
-            '<span class="blog-card-tag">&#128269; ' + blog.tag + '</span>' +
-            '<a href="' + blog.file + '" class="blog-card-title">' + blog.title + '</a>' +
-            '<p class="blog-card-excerpt">' + blog.excerpt + '</p>' +
-            '<div class="blog-card-meta">' +
-              '<span class="blog-card-date">' + formatted + ' &nbsp;&middot;&nbsp; ' + blog.readTime + ' min read</span>' +
-              '<a href="' + blog.file + '" class="blog-card-read">Read ' +
-                '<svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
-              '</a>' +
-            '</div>' +
-          '</div>';
-        grid.appendChild(card);
-      });
-    })
-    .catch(function() {
-      document.getElementById('blog-grid').innerHTML = '<p style="color:var(--muted);text-align:center;">Articles coming soon.</p>';
+  (function() {
+    var blogs = [
+      {
+        title: 'The Real Reason Homeowners Say "I Need to Talk to My Wife"',
+        date: '2026-06-12',
+        excerpt: 'Every contractor knows the feeling. The appointment went well. They liked you. Then comes the line. Here is why one-legged appointments kill deals and what to do about it.',
+        file: 'blog-one-legged-appointment.html',
+        tag: 'Home Service Sales',
+        readTime: '7'
+      },
+      {
+        title: 'Why Your Leads Go Cold After the Estimate (And How to Stop It)',
+        date: '2026-06-10',
+        excerpt: 'The window between delivering an estimate and hearing back is where most jobs are lost. Here is what happens during that silence and how to break it.',
+        file: 'blog-estimates-go-cold.html',
+        tag: 'Home Service Follow-Up',
+        readTime: '6'
+      },
+      {
+        title: 'How to Follow Up With Roofing Leads Without Being Annoying',
+        date: '2026-06-03',
+        excerpt: 'Most roofing follow-up fails because it puts too much work on the homeowner. Here is a 3-message sequence that recovers 15-20% of estimates that go cold.',
+        file: 'blog-roofing-lead-follow-up.html',
+        tag: 'Roofing Follow-Up',
+        readTime: '6'
+      }
+    ];
+
+    blogs.sort(function(a, b) { return new Date(b.date) - new Date(a.date); });
+
+    var grid = document.getElementById('blog-grid');
+    blogs.forEach(function(blog) {
+      var date = new Date(blog.date);
+      var formatted = date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+      var card = document.createElement('div');
+      card.className = 'blog-card fade-up';
+      card.innerHTML =
+        '<div class="blog-card-body">' +
+          '<span class="blog-card-tag">&#128269; ' + blog.tag + '</span>' +
+          '<a href="' + blog.file + '" class="blog-card-title">' + blog.title + '</a>' +
+          '<p class="blog-card-excerpt">' + blog.excerpt + '</p>' +
+          '<div class="blog-card-meta">' +
+            '<span class="blog-card-date">' + formatted + ' &nbsp;&middot;&nbsp; ' + blog.readTime + ' min read</span>' +
+            '<a href="' + blog.file + '" class="blog-card-read">Read ' +
+              '<svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+            '</a>' +
+          '</div>' +
+        '</div>';
+      grid.appendChild(card);
     });
+  })();
 </script>
 
 <!-- ============================================================

@@ -701,6 +701,21 @@
   /* ============================================================
      BLOG SECTION
      ============================================================ */
+  /* WHY LBS SECTION */
+  .why-lbs-section { padding: 100px 48px; background: var(--navy-mid); border-top: 1px solid var(--border-dim); border-bottom: 1px solid var(--border-dim); }
+  .why-lbs-inner { max-width: 1100px; margin: 0 auto; }
+  .why-lbs-title { font-family: var(--font-display); font-weight: 800; font-size: clamp(32px, 5vw, 56px); line-height: 1.1; letter-spacing: -0.02em; color: var(--white); margin-bottom: 20px; }
+  .why-lbs-intro { font-size: 18px; color: var(--muted); max-width: 600px; line-height: 1.7; margin-bottom: 56px; }
+  .why-lbs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .why-lbs-card { background: var(--navy-card); border: 1px solid var(--border-dim); border-radius: 16px; padding: 36px; position: relative; overflow: hidden; transition: border-color 0.25s, transform 0.2s; }
+  .why-lbs-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--blue), var(--electric)); opacity: 0; transition: opacity 0.25s; }
+  .why-lbs-card:hover { border-color: var(--border); transform: translateY(-4px); }
+  .why-lbs-card:hover::before { opacity: 1; }
+  .why-lbs-icon { font-size: 32px; margin-bottom: 20px; }
+  .why-lbs-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 18px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--white); margin-bottom: 14px; line-height: 1.3; }
+  .why-lbs-card p { font-size: 15px; color: var(--muted); line-height: 1.75; }
+  @media (max-width: 900px) { .why-lbs-grid { grid-template-columns: 1fr; } .why-lbs-section { padding: 72px 20px; } }
+
   .blog-section { background: var(--navy); padding: 100px 48px; }
   .blog-section-inner { max-width: 1100px; margin: 0 auto; }
   .blog-header { text-align: center; margin-bottom: 56px; }
@@ -1503,6 +1518,41 @@
 
 
 <!-- ============================================================
+     WHY LEAD BRIDGE SYSTEMS
+     ============================================================ -->
+<section class="why-lbs-section" id="why-lbs">
+  <div class="why-lbs-inner">
+    <div class="section-eyebrow fade-up">Why Lead Bridge Systems</div>
+    <h2 class="why-lbs-title fade-up">Built From the Inside.<br>Not the Outside.</h2>
+    <p class="why-lbs-intro fade-up">Most automation tools are built by developers who have never worked inside a service business. Lead Bridge Systems is different. Here is why that matters.</p>
+
+    <div class="why-lbs-grid">
+
+      <div class="why-lbs-card fade-up">
+        <div class="why-lbs-icon">&#127959;</div>
+        <h3>Three Years in the Trenches</h3>
+        <p>The founder spent three years as a lead setter inside a US roofing company. Not consulting from the outside. On the phones, working the dead pipeline, watching deals fall apart in real time. Every system LBS builds comes from that lived experience. We know what a one-legged appointment is. We know what a reset means. We know exactly why estimates go cold and what actually brings homeowners back.</p>
+      </div>
+
+      <div class="why-lbs-card fade-up">
+        <div class="why-lbs-icon">&#129504;</div>
+        <h3>Intelligence, Not Just Automation</h3>
+        <p>CRMs have built-in sequences. They fire the same template to every lead on a fixed timer. They do not read context, detect sentiment, or adjust based on what the homeowner actually said. Lead Bridge Systems is building the AI SDR for service businesses that sits on top of your existing tools and actually thinks. The right message, at the right time, based on what the AI knows about that specific lead. That is not a CRM feature. That is an intelligent follow-up system.</p>
+      </div>
+
+      <div class="why-lbs-card fade-up">
+        <div class="why-lbs-icon">&#128200;</div>
+        <h3>Adds Long Term Value to Your Business</h3>
+        <p>A done-for-you follow-up system does more than recover revenue today. A business where every lead gets nurtured without manual monitoring is worth more than one that depends on the owner to remember. Whether you want to sell, step back from the day to day, or hand the company to the next generation, documented and automated processes make that possible. Lead Bridge Systems is not just a service business sales automation tool. It is a system that builds into the value of what you own.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ============================================================
      ROI CALCULATOR
      ============================================================ -->
 <section class="calc-section" id="calculator">
@@ -1683,6 +1733,14 @@
 <script>
   (function() {
     var blogs = [
+      {
+        title: 'Why Built-In CRM Sequences Are Not Enough (And What Actually Closes the Gap)',
+        date: '2026-07-01',
+        excerpt: 'Most CRMs now have built-in follow-up sequences. They work. But there is a gap between what a sequence does and what actually closes deals. Here is what that gap looks like and what fills it.',
+        file: 'blog-crm-sequences-vs-ai-sdr.html',
+        tag: 'AI SDR',
+        readTime: '6'
+      },
       {
         title: 'Why the Most Valuable Service Businesses Run on Systems, Not People',
         date: '2026-06-27',
